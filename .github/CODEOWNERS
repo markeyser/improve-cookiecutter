@@ -1,0 +1,5 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# @t93kqi0 and @gt93kil3 will be requested for
+# review when someone opens a pull request.
+*       @t93kqi0 @gt93kil3

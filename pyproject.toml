@@ -1,0 +1,96 @@
+[tool.black]
+# Overide default Black formatting to keep 79 character line-lenght
+line-length = 79
+# Specify your Python version
+target-version = ['py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+	\.git
+| \.hg
+| \.mypy_cache
+| \.tox
+| \.venv
+| _build
+| buck-out
+| build
+)/
+'''
+
+[tool.ruff]
+select = ["ALL"]
+# To ignore all rules with a common pre-fix use *
+ignore = ["ANN001", "ANN002", "ANN003", "ANN101", "ANN102", "ANN201", "ANN202",
+"ANN204", "ANN205", "ANN206", "ANN401"]
+
+# Decrease the maximum line length to 79 characters.
+line-length = 79
+# To opt in to linting Jupyter Notebook
+# The include parameter is for Jupyter Notebooks and not
+# for Jupyter Notebook in VS Code. Jupyter Notebook in 
+# VSCode isn't supported yet:
+# https://github.com/astral-sh/ruff-vscode/issues/256
+# See also discussion on Discord
+include = ["*.py", "*.pyi", "**/pyproject.toml", "*.ipynb"]
+
+[tool.pycln]
+all = true
+
+[tool.autoflake]
+check = true
+imports = ["remove-all-unused-imports"]
+
+[tool.interrogate]
+# Ignore `__init__` method of classes.
+ignore-init-method = false
+# Ignore `__init__.py` modules.
+ignore-init-module = false
+# Ignore all magic methods of classes.
+ignore-magic = false
+# Ignore semiprivate classes, methods, and
+# functions starting with a single underscore
+ignore-semiprivate = false
+# Ignore private classes, methods, and
+# functions starting with two underscores.
+ignore-private = false
+# Ignore methods with property setter/getter
+# decorators.
+ignore-property-decorators = false
+# Ignore module-level docstrings.
+ignore-module = false
+# Ignore nested functions and methods.
+ignore-nested-functions = false
+# Ignore nested classes.
+ignore-nested-classes = true
+# Ignore methods with property setter
+# decorators.
+ignore-setters = false
+# Fail when coverage % is less than a given
+# amount.  [default: 80.0]
+fail-under = 95
+# Exclude PATHs of files and/or directories.
+exclude = ["setup.py", "docs", "build"]
+# Regex identifying class, method, and
+# function names to ignore.
+ignore-regex = ["^get$", "^mock_.*", ".*BaseClass.*"]
+# Level of verbosity
+# possible values: 0 (minimal output), 1 (-v), 2 (-vv)
+verbose = 2
+# Do not print output
+quiet = false
+# Regex identifying class, method, and
+# function names to include.
+whitelist-regex = []
+# Toggle color output on/off when printing to
+# stdout.
+color = true
+# Generate a 'shields.io' status badge (an SVG
+# image) in at a given file or directory.
+generate-badge = "."
+# File format for the generated badge.
+badge-format = "svg"
+
+[tool.pymarkdown]
+disable-rules = ["MD046"]
+
+
